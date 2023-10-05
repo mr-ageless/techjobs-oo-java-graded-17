@@ -47,10 +47,10 @@ public class PositionType extends JobField{
         return id == that.id && Objects.equals(value, that.value);
     }
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, value);
-//    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, value);
+    }
 //    @Override
 //    public int hashCode() {
 //    return Objects.hash(getId());

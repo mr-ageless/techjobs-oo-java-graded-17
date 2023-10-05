@@ -15,4 +15,9 @@ public class Employer extends JobField{
         Employer employer = (Employer) o;
         return getId() == employer.getId();
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }

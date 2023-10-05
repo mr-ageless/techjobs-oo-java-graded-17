@@ -16,4 +16,9 @@ public class CoreCompetency extends JobField{
         return id == that.id;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
 }

@@ -21,10 +21,10 @@ abstract class JobField {
         return value;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(getId());
+//    }
 
     // Common Getters/Setters
 
