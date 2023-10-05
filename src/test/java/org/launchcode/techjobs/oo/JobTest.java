@@ -2,6 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
+import static java.lang.System.lineSeparator;
 import static org.junit.Assert.*;
 import static org.testng.Assert.assertTrue;
 
@@ -44,7 +45,44 @@ public void testSettingJobId() {
     Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
+    // Asserts that job and job1 are not equal. All fields are the same except their id, so they are not equal.
     assertNotEquals(job, job1);
 }
+
+@Test
+    public void testToStringStartsAndEndsWithNewLine() {
+    Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+    String jobString = job.toString();
+
+    assertTrue(jobString.startsWith(System.lineSeparator()));
+    assertTrue(jobString.endsWith(System.lineSeparator()));
+}
+@Test
+    public void testToStringContainsCorrectLabelsAndData(){
+    Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+    String jobString = job.toString();
+
+    assertTrue(jobString.contains("ID: " + job.getId() + System.lineSeparator()));
+    assertTrue(jobString.contains("Name: Product tester" + System.lineSeparator()));
+    assertTrue(jobString.contains("Employer: ACME" + System.lineSeparator()));
+    assertTrue(jobString.contains("Location: Desert" + System.lineSeparator()));
+    assertTrue(jobString.contains("Position Type: Quality control" + System.lineSeparator()));
+    assertTrue(jobString.contains("Core Competency: Persistence" + System.lineSeparator()));
+}
+
+ @Test
+    public void testToStringHandlesEmptyField() {
+
+    Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+    String jobString = job.toString();
+
+    String expectedFormat = System.lineSeparator() + "ID: " + job.getId() + System.lineSeparator() + "Name: Data not available" + System.lineSeparator() + "Employer: Data not available" + System.lineSeparator() + "Location: Data not available" + System.lineSeparator() + "Position Type: Data not available" + System.lineSeparator() + "Core Competency: Data not available" + System.lineSeparator();
+
+    assertEquals(expectedFormat, jobString);
+}
+
 
 }
