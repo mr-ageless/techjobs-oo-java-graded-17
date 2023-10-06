@@ -5,6 +5,7 @@ import java.util.Objects;
 public class CoreCompetency extends JobField{
 
     public CoreCompetency(String value) {
+
         super(value);
     }
 
@@ -16,9 +17,5 @@ public class CoreCompetency extends JobField{
         return id == that.id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
-
 }
+

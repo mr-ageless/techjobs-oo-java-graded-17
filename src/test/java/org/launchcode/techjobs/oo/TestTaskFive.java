@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.SQLOutput;
 
 import static java.lang.System.lineSeparator;
 import static org.junit.Assert.assertEquals;
@@ -38,6 +39,7 @@ public class TestTaskFive extends AbstractTest {
         Job job = createJob("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
         String firstChar = String.valueOf(job.toString().charAt(0));
         String lastChar = String.valueOf(job.toString().charAt(job.toString().length()-1));
+
         assertEquals(firstChar, lineSeparator());
         assertEquals(lastChar, lineSeparator());
     }

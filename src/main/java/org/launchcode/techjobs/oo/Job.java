@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import java.lang.System;
+
 public class Job {
 
     private int id;
@@ -12,6 +14,7 @@ public class Job {
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
+
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -31,6 +34,11 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+    private static String lineSeparator() {
+
+        return System.lineSeparator();
+    }
+
         // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
@@ -41,12 +49,6 @@ public class Job {
         Job job = (Job) o;
         return id == job.id;
     }
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Job job = (Job) o;
-//        return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
-//    }
 
     @Override
     public int hashCode() {
@@ -55,15 +57,13 @@ public class Job {
 
     @Override
     public String toString() {
-        return System.lineSeparator() +
-                "ID: " + this.getId() + System.lineSeparator() +
-                "Name: " + (this.getName().isEmpty() ? "Data not available" : this.getName()) + System.lineSeparator() +
-                "Employer: " + (this.getEmployer().getValue().isEmpty() ? "Data not available" : this.getEmployer().getValue()) + System.lineSeparator() +
-                "Location: " + (this.getLocation().getValue().isEmpty() ? "Data not available" : this.getLocation().getValue()) + System.lineSeparator() +
-                "Position Type: " + (this.getPositionType().getValue().isEmpty() ? "Data not available" : this.getPositionType().getValue()) + System.lineSeparator() +
-                "Core Competency: " + (this.getCoreCompetency().getValue().isEmpty() ? "Data not available" : this.getCoreCompetency().getValue()) + System.lineSeparator();
-
-
+        return lineSeparator() +
+                "ID: " + this.getId() + lineSeparator() +
+                "Name: " + (this.getName().isEmpty() ? "Data not available" : this.getName()) + lineSeparator() +
+                "Employer: " + (this.getEmployer().getValue().isEmpty() ? "Data not available" : this.getEmployer().getValue()) + lineSeparator() +
+                "Location: " + (this.getLocation().getValue().isEmpty() ? "Data not available" : this.getLocation().getValue()) + lineSeparator() +
+                "Position Type: " + (this.getPositionType().getValue().isEmpty() ? "Data not available" : this.getPositionType().getValue()) + lineSeparator() +
+                "Core Competency: " + (this.getCoreCompetency().getValue().isEmpty() ? "Data not available" : this.getCoreCompetency().getValue()) + lineSeparator();
     }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID

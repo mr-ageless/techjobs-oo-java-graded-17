@@ -2,12 +2,19 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
-import static java.lang.System.lineSeparator;
+import java.lang.System;
 import static org.junit.Assert.*;
 import static org.testng.Assert.assertTrue;
 
 public class JobTest {
+
+    private static String lineSeparator() {
+
+        return System.lineSeparator();
+    }
+
     //TODO: Create your unit tests here
+
 @Test
 public void testSettingJobId() {
     // Added two instances of the Job class to be tested
@@ -16,6 +23,7 @@ public void testSettingJobId() {
     // Checks that each job item is being assigned a unique id
     assertNotEquals(job1.getId(), job2.getId());
 }
+
 @Test
     public void testJobConstructorSetsAllFields() {
     //
@@ -39,6 +47,7 @@ public void testSettingJobId() {
     assertTrue(job.getCoreCompetency() instanceof CoreCompetency);
     assertEquals("Persistence", job.getCoreCompetency().getValue());
 }
+
 @Test
     public void testJobsForEquality() {
     //Two identical instances of job, with different ids supplied by the id incrementer in Job.java
@@ -55,21 +64,22 @@ public void testSettingJobId() {
 
     String jobString = job.toString();
 
-    assertTrue(jobString.startsWith(System.lineSeparator()));
-    assertTrue(jobString.endsWith(System.lineSeparator()));
+    assertTrue(jobString.startsWith(lineSeparator()));
+    assertTrue(jobString.endsWith(lineSeparator()));
 }
+
 @Test
     public void testToStringContainsCorrectLabelsAndData(){
     Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
     String jobString = job.toString();
 
-    assertTrue(jobString.contains("ID: " + job.getId() + System.lineSeparator()));
-    assertTrue(jobString.contains("Name: Product tester" + System.lineSeparator()));
-    assertTrue(jobString.contains("Employer: ACME" + System.lineSeparator()));
-    assertTrue(jobString.contains("Location: Desert" + System.lineSeparator()));
-    assertTrue(jobString.contains("Position Type: Quality control" + System.lineSeparator()));
-    assertTrue(jobString.contains("Core Competency: Persistence" + System.lineSeparator()));
+    assertTrue(jobString.contains("ID: " + job.getId() + lineSeparator()));
+    assertTrue(jobString.contains("Name: Product tester" + lineSeparator()));
+    assertTrue(jobString.contains("Employer: ACME" + lineSeparator()));
+    assertTrue(jobString.contains("Location: Desert" + lineSeparator()));
+    assertTrue(jobString.contains("Position Type: Quality control" + lineSeparator()));
+    assertTrue(jobString.contains("Core Competency: Persistence" + lineSeparator()));
 }
 
  @Test
@@ -79,7 +89,7 @@ public void testSettingJobId() {
 
     String jobString = job.toString();
 
-    String expectedFormat = System.lineSeparator() + "ID: " + job.getId() + System.lineSeparator() + "Name: Data not available" + System.lineSeparator() + "Employer: Data not available" + System.lineSeparator() + "Location: Data not available" + System.lineSeparator() + "Position Type: Data not available" + System.lineSeparator() + "Core Competency: Data not available" + System.lineSeparator();
+    String expectedFormat = lineSeparator() + "ID: " + job.getId() + lineSeparator() + "Name: Data not available" + lineSeparator() + "Employer: Data not available" + lineSeparator() + "Location: Data not available" + lineSeparator() + "Position Type: Data not available" + lineSeparator() + "Core Competency: Data not available" + lineSeparator();
 
     assertEquals(expectedFormat, jobString);
 }
